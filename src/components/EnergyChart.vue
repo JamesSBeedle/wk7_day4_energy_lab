@@ -33,7 +33,7 @@ export default {
         chartData: function() {
             if (this.rawEnergyData) { 
                 const data = this.rawEnergyData.map(entry => Object.values(entry))
-                console.log(data);
+                console.log(`${data}`);
                 data.unshift(Object.keys(this.rawEnergyData[0]))
                 console.log(data);
                 return data
