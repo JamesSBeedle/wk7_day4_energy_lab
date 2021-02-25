@@ -1,7 +1,7 @@
 <template>
-    <div id="pie-chart">
-        <GChart
-            type="PieChart"
+    <div id="bar-chart">
+            <GChart
+            type="BarChart"
             :data="chartData"
             :options="chartOptions"
         />
@@ -13,13 +13,13 @@
 import { GChart } from 'vue-google-charts'
 
 export default {
-    name: 'energy-chart',
+    name: 'energy-bar-chart',
     props: ['rawEnergyData'],
     data() {
 
         return {
             chartOptions: {
-                title: "Energy Usage Pie Chart",
+                title: "Energy Usage Bar Chart",
                 width: 800,
                 height: 800,
                
@@ -33,9 +33,7 @@ export default {
         chartData: function() {
             if (this.rawEnergyData) { 
                 const data = this.rawEnergyData.map(entry => Object.values(entry))
-                console.log(data);
                 data.unshift(Object.keys(this.rawEnergyData[0]))
-                console.log(data);
                 return data
             } 
             return null
@@ -46,7 +44,8 @@ export default {
 </script>
 
 <style>
-#pie-chart{
+#bar-chart{
     border:4px inset black;
 }
+
 </style>
